@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
-    <title>Одноденьки</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Загрузка…</title>
+    <style>
+      body {
+        background-color: white;
+        text-align: center;
+        padding-top: 100px;
+        font-family: sans-serif;
+        color: #888;
+      }
+      .dot {
+        font-size: 32px;
+        animation: blink 1s infinite;
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+      }
+    </style>
   </head>
   <body>
-    <h1>Одноденьки</h1>
-    <p>Скоро здесь появится кое-что удивительное :)</p>
+    <p>Загрузка<span class="dot">…</span></p>
   </body>
 </html>
