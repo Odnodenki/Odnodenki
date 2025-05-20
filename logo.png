@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Загрузка…</title>
+    
+    <!-- Фавикон -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Стили -->
     <style>
       body {
         background-color: white;
@@ -11,18 +16,29 @@
         font-family: sans-serif;
         color: #888;
       }
+
       .dot {
         font-size: 32px;
         animation: blink 1s infinite;
       }
+
       @keyframes blink {
         0% { opacity: 0.2; }
         50% { opacity: 1; }
         100% { opacity: 0.2; }
       }
+
+      .logo {
+        display: block;
+        margin: 40px auto;
+        max-width: 150px;
+      }
     </style>
   </head>
   <body>
+    <!-- Логотип -->
+    <img src="logo.png" alt="Логотип Однодневки" class="logo" />
+
     <p>Загрузка<span class="dot">…</span></p>
   </body>
 </html>
