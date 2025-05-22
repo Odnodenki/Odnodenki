@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Загрузка…</title>
+  <style>
+    body {
+      background-color: white;
+      text-align: center;
+      padding-top: 20%;
+      font-family: sans-serif;
+      color: #888;
+      font-size: 24px;
+    }
+    .dot {
+      font-size: 32px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+  </style>
+</head>
+<body>
+  <p>Сайт загружается<span class="dot">…</span></p>
+</body>
+</html>
