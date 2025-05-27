@@ -1,1 +1,83 @@
-<html><head><title>Профиль</title></head><body><h2>Профиль</h2></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Профиль — Однодневки</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #e0f7f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .profile-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      width: 320px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00acc1;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin: 10px 0 5px;
+      font-size: 22px;
+      color: #007c91;
+    }
+
+    p {
+      margin: 5px 0;
+      color: #444;
+    }
+
+    .edit-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00acc1;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.3s ease;
+    }
+
+    .edit-btn:hover {
+      background-color: #007c91;
+    }
+
+    .logo-mini {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <img src="logo.png" alt="Логотип" class="logo-mini" />
+    <img src="https://via.placeholder.com/100x100.png?text=👤" alt="Аватар" class="avatar" />
+    <h2>Имя Пользователя</h2>
+    <p>Дата рождения: 01.01.2000</p>
+    <p>Email: user@example.com</p>
+    <button class="edit-btn">Редактировать</button>
+  </div>
+</body>
+</html>
