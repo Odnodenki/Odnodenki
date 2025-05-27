@@ -24,6 +24,12 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       text-align: center;
       position: relative;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .avatar {
@@ -33,6 +39,13 @@
       object-fit: cover;
       border: 3px solid #00acc1;
       margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,172,193,0.5);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(0,172,193,0.5); }
+      50% { box-shadow: 0 0 20px rgba(0,172,193,1); }
     }
 
     h2 {
@@ -44,6 +57,7 @@
     p {
       margin: 5px 0;
       color: #444;
+      font-size: 15px;
     }
 
     .edit-btn {
@@ -67,6 +81,7 @@
       top: 20px;
       left: 20px;
       width: 40px;
+      filter: drop-shadow(0 0 2px #007c91);
     }
   </style>
 </head>
@@ -81,3 +96,4 @@
   </div>
 </body>
 </html>
+
