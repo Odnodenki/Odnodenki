@@ -1,76 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Добро пожаловать в Однодневки</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Однодневки — Регистрация</title>
   <style>
     body {
-      background-color: #e0f7f9;
-      font-family: sans-serif;
-      text-align: center;
-      padding-top: 100px;
       margin: 0;
+      padding: 0;
+      background-color: #aee9f2; /* Бирюзовый фон */
+      font-family: sans-serif;
       overflow: hidden;
     }
+
     .logo {
-      width: 100px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+      height: 80px;
+    }
+
+    .center-text {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #333;
+    }
+
+    .center-text h1 {
+      font-size: 36px;
       margin-bottom: 20px;
     }
-    h1 {
-      color: #00acc1;
-      font-size: 28px;
-    }
-    form {
-      display: inline-block;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input {
-      display: block;
-      margin: 10px auto;
+
+    .center-text input, .center-text button {
       padding: 10px;
-      width: 200px;
-    }
-    button {
-      background-color: #00acc1;
-      color: white;
+      margin: 5px;
+      font-size: 16px;
       border: none;
-      padding: 10px 20px;
-      cursor: pointer;
       border-radius: 4px;
     }
+
+    .center-text input {
+      width: 200px;
+    }
+
+    .center-text button {
+      background-color: #ff80a4;
+      color: white;
+      cursor: pointer;
+    }
+
     .zodiac {
       position: absolute;
-      font-size: 32px;
+      font-size: 40px;
       opacity: 0.1;
-      animation: float 20s infinite linear;
+      animation: floatZodiac 15s linear infinite;
     }
-    @keyframes float {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(100vw, 100vh); }
-      100% { transform: translate(0, 0); }
+
+    @keyframes floatZodiac {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      100% {
+        transform: translate(100vw, 100vh) rotate(360deg);
+      }
     }
   </style>
-  <script>
-    function handleRegister(event) {
-      event.preventDefault();
-      window.location.href = 'main.html';
-    }
-  </script>
 </head>
 <body>
-  <img src="logo.png" alt="Логотип" class="logo" />
-  <h1>Присоединяйтесь к Однодневкам</h1>
-  <form onsubmit="handleRegister(event)">
+
+  <!-- Логотип -->
+  <img class="logo" src="logo-transparent.png" alt="Логотип" />
+
+  <!-- Центральный блок -->
+  <div class="center-text">
+    <h1>Добро пожаловать в Однодневки!</h1>
     <input type="text" placeholder="Имя" required />
-    <input type="email" placeholder="Email" required />
     <input type="date" placeholder="Дата рождения" required />
+    <input type="email" placeholder="Email" required />
     <input type="password" placeholder="Пароль" required />
-    <button type="submit">Зарегистрироваться</button>
-  </form>
+    <br />
+    <button onclick="alert('Регистрация отправлена!')">Зарегистрироваться</button>
+  </div>
+
+  <!-- Знаки зодиака -->
+  <script>
+    const signs = ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'];
+    for (let i = 0; i < 30; i++) {
+      const el = document.createElement('div');
+      el.className = 'zodiac';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = Math.random() * 100 + 'vh';
+      el.style.animationDuration = 10 + Math.random() * 10 + 's';
+      el.style.fontSize = 20 + Math.random() * 60 + 'px';
+      el.textContent = signs[Math.floor(Math.random() * signs.length)];
+      document.body.appendChild(el);
+    }
+  </script>
+
 </body>
 </html>
