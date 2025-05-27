@@ -6,12 +6,57 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      background-color: #e0f7f9;
+      margin: 0;
       font-family: sans-serif;
       text-align: center;
-      margin: 0;
+      background-color: #e0f7f9;
       overflow: hidden;
       position: relative;
+    }
+
+    .bubble-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      animation: rise 20s infinite ease-in;
+    }
+
+    .bubble:nth-child(1) { left: 10%; width: 30px; height: 30px; animation-duration: 18s; }
+    .bubble:nth-child(2) { left: 30%; width: 40px; height: 40px; animation-duration: 25s; }
+    .bubble:nth-child(3) { left: 50%; width: 60px; height: 60px; animation-duration: 22s; }
+    .bubble:nth-child(4) { left: 70%; width: 35px; height: 35px; animation-duration: 20s; }
+    .bubble:nth-child(5) { left: 85%; width: 25px; height: 25px; animation-duration: 30s; }
+    .bubble:nth-child(6) { left: 60%; width: 50px; height: 50px; animation-duration: 26s; }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0.4; }
+      50% { opacity: 0.2; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    .zodiac {
+      position: absolute;
+      font-size: 40px;
+      opacity: 0.08;
+      animation: floatZodiac 30s infinite linear;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatZodiac {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      50%  { transform: translate(100vw, 100vh) rotate(180deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
     }
 
     .header {
@@ -28,14 +73,8 @@
     }
 
     @keyframes pulseScale {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.1);
-        opacity: 0.85;
-      }
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.1); opacity: 0.85; }
     }
 
     h1 {
@@ -83,26 +122,6 @@
     .btn:hover {
       background-color: #007c91;
     }
-
-    .zodiac {
-      position: absolute;
-      font-size: 40px;
-      opacity: 0.08;
-      animation: floatZodiac 30s infinite linear;
-      pointer-events: none;
-    }
-
-    @keyframes floatZodiac {
-      0% {
-        transform: translate(0, 0) rotate(0deg);
-      }
-      50% {
-        transform: translate(100vw, 100vh) rotate(180deg);
-      }
-      100% {
-        transform: translate(0, 0) rotate(360deg);
-      }
-    }
   </style>
   <script>
     function goToMain(event) {
@@ -112,7 +131,7 @@
 
     function createZodiacSymbols() {
       const symbols = ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'];
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 20; i++) {
         const el = document.createElement('div');
         el.className = 'zodiac';
         el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
@@ -125,24 +144,42 @@
       }
     }
 
-    window.onload = createZodiacSymbols;
+    window.onload = function () {
+      createZodiacSymbols();
+    };
   </script>
 </head>
 <body>
+  <!-- Анимированный фон пузырей -->
+  <div class="bubble-container">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Верхняя часть с логотипом и заголовком -->
   <div class="header">
     <img src="logo.png" alt="Логотип Однодневки" class="logo" />
     <h1>Присоединяйтесь к Однодневкам</h1>
   </div>
+
+  <!-- Форма регистрации -->
   <form onsubmit="goToMain(event)">
     <input type="text" placeholder="Имя" required />
     <input type="email" placeholder="Email" required />
-    <input type="date" placeholder="Дата рождения" required />
+    <input type="date" required />
     <input type="password" placeholder="Пароль" required />
     <div class="buttons">
       <button class="btn" type="submit">Зарегистрироваться</button>
       <button class="btn" onclick="goToMain(event)">Войти</button>
     </div>
   </form>
+</body>
+</html>
+
 </body>
 </html>
 
